@@ -4,7 +4,7 @@
 
 The app is a highly configurable proof of concept for fair giveaways/giveaways using Chainlink Automation and VRF. It is capable of creating and resolving on demand utilizing the VRF Direct Funding method and Automations.
 
-![image]()
+![image](https://i.imgur.com/lCIAVrR.png)
 
 Recommended Networks:
 
