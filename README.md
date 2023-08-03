@@ -28,7 +28,7 @@ $ git clone https://github.com/smartcontractkit/quickstart-giveaway.git
 
 ### 3. Setup contracts environment variables
 
-Setup an `env` variables (consider using a secure pacakage for production)
+Setup an `env` variables
 
 ```bash
 # <root>/contracts
