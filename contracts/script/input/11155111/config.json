@@ -1,0 +1,11 @@
+{
+  "name": "sepolia",
+  "linkAddress": "0x779877A7B0D9E8603169DdbD7836e478b4624789",
+  "wrapperAddress": "0xab18414CD93297B0d12ac29E63Ca20f515b3DB46",
+  "keepersRegistry": "0xE16Df59B887e3Caa439E0b29B42bA2e7976FD8b2",
+  "requestConfirmations": 3,
+  "callbackGasLimit": 500000,
+  "registrarAddress": "0xE16Df59B887e3Caa439E0b29B42bA2e7976FD8b2",
+  "whaleAddress": "0x61E5E1ea8fF9Dc840e0A549c752FA7BDe9224e99",
+  "automationCallbackGas": 500000
+}

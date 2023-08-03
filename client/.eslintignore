@@ -1,0 +1,9 @@
+config/*
+test/*
+node_modules/**
+dist/**
+build/**
+scripts/*
+public/**
+.DS_Store
+**/*.snap

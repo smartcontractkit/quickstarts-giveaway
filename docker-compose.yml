@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  contracts:
+    build:
+      context: .
+      dockerfile: contracts.dockerfile
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./contracts/:/app
+    environment:
+      DOCKER_BUILDKIT: 1
+      RPC_URL: ${RPC_URL:-}
+      LOCAL_RPC_URL: ${LOCAL_RPC_URL:-}
+      PRIVATE_KEY: ${PRIVATE_KEY:-}
+      ANVIL_PRIVATE_KEY: ${ANVIL_PRIVATE_KEY:-}
+      EXPLORER_KEY: ${EXPLORER_KEY:-}
+
+  ui:
+    build:
+      context: .
+      dockerfile: ui.dockerfile
+    ports:
+      - "3005:80"
+    volumes:
+      - ./client/:/app
+      - /app/node_modules
+    environment:
+      DOCKER_BUILDKIT: 1
+      UI_GIVEAWAY_MANAGER_CONTRACT_ADDRESS: ${UI_GIVEAWAY_MANAGER_CONTRACT_ADDRESS:-}
+      UI_LINK_TOKEN_CONTRACT_ADDRESS: ${UI_LINK_TOKEN_CONTRACT_ADDRESS:-}

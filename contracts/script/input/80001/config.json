@@ -1,0 +1,11 @@
+{
+  "name": "mumbai",
+  "linkAddress": "0x326C977E6efc84E512bB9C30f76E30c160eD06FB",
+  "wrapperAddress": "0x99aFAf084eBA697E584501b8Ed2c0B37Dd136693",
+  "keepersRegistry": "0x02777053d6764996e594c3E88AF1D58D5363a2e6",
+  "requestConfirmations": 3,
+  "callbackGasLimit": 500000,
+  "registrarAddress": "0xDb8e8e2ccb5C033938736aa89Fe4fa1eDfD15a1d",
+  "whaleAddress": "0xe4ddb4233513498b5aa79b98bea473b01b101a67",
+  "automationCallbackGas": 5000000
+}

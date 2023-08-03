@@ -1,0 +1,19 @@
+{
+  "name": "giveaway-chainlink-automation",
+  "version": "1.0.0",
+  "author": "LinkPool",
+  "description": "Giveaway SDK and UI",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "yarn@3.2.1"
+}

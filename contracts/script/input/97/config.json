@@ -1,0 +1,11 @@
+{
+  "name": "binance-testnet",
+  "linkAddress": "0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06",
+  "wrapperAddress": "0x699d428ee890d55D56d5FC6e26290f3247A762bd",
+  "keepersRegistry": "0x02777053d6764996e594c3E88AF1D58D5363a2e6",
+  "requestConfirmations": 3,
+  "callbackGasLimit": 500000,
+  "registrarAddress": "0xDb8e8e2ccb5C033938736aa89Fe4fa1eDfD15a1d",
+  "whaleAddress": "0xe4ddb4233513498b5aa79b98bea473b01b101a67",
+  "automationCallbackGas": 5000000
+}

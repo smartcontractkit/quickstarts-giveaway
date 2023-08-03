@@ -1,0 +1,8 @@
+{
+  "name": "polygon",
+  "linkAddress": "0xb0897686c545045aFc77CF20eC7A532E3120E0F1",
+  "wrapperAddress": "0x4e42f0adEB69203ef7AaA4B7c414e5b1331c14dc",
+  "keepersRegistry": "0x02777053d6764996e594c3E88AF1D58D5363a2e6",
+  "requestConfirmations": 3,
+  "callbackGasLimit": 1000000
+}

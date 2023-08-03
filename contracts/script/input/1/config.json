@@ -1,0 +1,10 @@
+{
+  "name": "mainnet",
+  "linkAddress": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+  "wrapperAddress": "0x5A861794B927983406fCE1D062e00b9368d97Df6",
+  "keepersRegistry": "0x02777053d6764996e594c3E88AF1D58D5363a2e6",
+  "callbackGasLimit": 500000,
+  "registrarAddress": "0xDb8e8e2ccb5C033938736aa89Fe4fa1eDfD15a1d",
+  "whaleAddress": "0x0757e27AC1631beEB37eeD3270cc6301dD3D57D4",
+  "automationCallbackGas": 5000000
+}
