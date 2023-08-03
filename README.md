@@ -34,12 +34,12 @@ Setup an `env` variables
 # <root>/contracts
 $ touch .env
 $ open .env
+# Consider using a secure env management package for production
+# Make sure this is untracked if you're going to push to your own repo
 ```
 
 ```bash
 # Do NOT use quotes to assign values!
-# Consider using a secure env management package for production
-# Make sure this is untracked if you're going to push to your own repo
 
 # Network RPCs
 export RPC_URL=
