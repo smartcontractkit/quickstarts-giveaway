@@ -28,7 +28,7 @@ $ git clone https://github.com/smartcontractkit/quickstart-giveaway.git
 
 ### 3. Setup contracts environment variables
 
-Setup an `.env`
+Setup an `env` variables (consider using a secure pacakage for production)
 
 ```bash
 # <root>/contracts
@@ -37,7 +37,9 @@ $ open .env
 ```
 
 ```bash
-# Do not use quotes to assign values!
+# Do NOT use quotes to assign values!
+# Consider using a secure env management package for production
+# Make sure this is untracked if you're going to push to your own repo
 
 # Network RPCs
 export RPC_URL=
