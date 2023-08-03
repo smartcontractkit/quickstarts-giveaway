@@ -99,7 +99,7 @@ $ yarn
 
 ### 6. Run UI
 
-Prepare your env variables for export (save them, needed for each time you want to run UI):
+Prepare your UI `env` variables for export (needed for each time you want to run UI):
 
 - Giveaway Contract Manager Address from Step 4 "Deploy Contract"
 - Token Contract Addresses can be found [here](https://docs.chain.link/resources/link-token-contracts)
