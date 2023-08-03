@@ -34,7 +34,7 @@ Setup an `env` variables
 # <root>/contracts
 $ touch .env
 $ open .env
-# Consider using a secure env management package for production
+# Consider using a secure env management package instead
 # Make sure this is untracked if you're going to push to your own repo
 ```
 
