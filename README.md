@@ -103,7 +103,7 @@ Prepare your env variables for export (save them, needed for each time you want 
 
 - Giveaway Contract Manager Address from Step 4 "Deploy Contract"
 - Token Contract Addresses can be found [here](https://docs.chain.link/resources/link-token-contracts)
-- Keeper Registry Contract Addresses can be found [here](https://docs.chain.link/chainlink-automation/supported-networks/)
+- Keeper Registry Contract Addresses (currently only Automation v1.2 supported): `0x02777053d6764996e594c3E88AF1D58D5363a2e6` 
 
 ```bash
 # <root>/client/packages/ui
