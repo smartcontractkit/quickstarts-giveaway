@@ -1,0 +1,1036 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "wrapperAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "requestConfirmations",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint32",
+        "name": "callbackGasLimit",
+        "type": "uint32"
+      },
+      { "internalType": "address", "name": "keeperAddress", "type": "address" },
+      { "internalType": "address", "name": "linkAddress", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "registrarAddress",
+        "type": "address"
+      },
+      { "internalType": "uint32", "name": "automationGas", "type": "uint32" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "x", "type": "uint256" },
+      { "internalType": "uint256", "name": "y", "type": "uint256" },
+      { "internalType": "uint256", "name": "denominator", "type": "uint256" }
+    ],
+    "name": "PRBMath_MulDiv_Overflow",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Paused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      }
+    ],
+    "name": "GiveawayCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32[]",
+        "name": "participants",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "GiveawayClosed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "prize",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "fee",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "feeToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "permissioned",
+        "type": "bool"
+      }
+    ],
+    "name": "GiveawayCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "player",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "entries",
+        "type": "uint256"
+      }
+    ],
+    "name": "GiveawayJoined",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "oldOwner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "GiveawayOwnerUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "winner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "GiveawayPrizeClaimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      }
+    ],
+    "name": "GiveawayStaged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "giveawayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32[]",
+        "name": "winners",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "GiveawayWon",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Unpaused",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "cancelGiveaway",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "checkData", "type": "bytes" }
+    ],
+    "name": "checkUpkeep",
+    "outputs": [
+      { "internalType": "bool", "name": "upkeepNeeded", "type": "bool" },
+      { "internalType": "bytes", "name": "performData", "type": "bytes" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "claimPrize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "claimableAutomation",
+    "outputs": [
+      { "internalType": "uint256", "name": "claimable", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "claimableLink",
+    "outputs": [
+      { "internalType": "uint256", "name": "claimable", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" },
+      { "internalType": "uint8", "name": "entries", "type": "uint8" },
+      { "internalType": "bytes32[]", "name": "proof", "type": "bytes32[]" }
+    ],
+    "name": "enterGiveaway",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllGiveaways",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "enum GiveawayManager.GiveawayType",
+                "name": "giveawayType",
+                "type": "uint8"
+              },
+              { "internalType": "uint256", "name": "id", "type": "uint256" },
+              { "internalType": "bool", "name": "automation", "type": "bool" },
+              { "internalType": "bool", "name": "feeToken", "type": "bool" },
+              {
+                "internalType": "address",
+                "name": "feeTokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "startDate",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "permissioned",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint8",
+                "name": "totalWinners",
+                "type": "uint8"
+              },
+              {
+                "internalType": "bytes",
+                "name": "provenanceHash",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint8",
+                "name": "entriesPerUser",
+                "type": "uint8"
+              }
+            ],
+            "internalType": "struct GiveawayManager.GiveawayBase",
+            "name": "base",
+            "type": "tuple"
+          },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          {
+            "internalType": "string",
+            "name": "giveawayName",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "contestants",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "winners",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "UD60x18",
+            "name": "prizeWorth",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "requestId",
+                "type": "uint256"
+              },
+              { "internalType": "uint256", "name": "paid", "type": "uint256" },
+              { "internalType": "bool", "name": "fulfilled", "type": "bool" },
+              {
+                "internalType": "uint256[]",
+                "name": "randomWords",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLink",
+                "type": "uint256"
+              },
+              { "internalType": "bool", "name": "withdrawn", "type": "bool" },
+              {
+                "internalType": "uint256",
+                "name": "upkeepId",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct GiveawayManager.RequestStatus",
+            "name": "requestStatus",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeLength",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "fee", "type": "uint256" },
+          {
+            "internalType": "enum GiveawayManager.GiveawayState",
+            "name": "giveawayState",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "prizeName",
+                "type": "string"
+              },
+              {
+                "internalType": "bytes32[]",
+                "name": "claimedPrizes",
+                "type": "bytes32[]"
+              }
+            ],
+            "internalType": "struct GiveawayManager.Prize",
+            "name": "prize",
+            "type": "tuple"
+          },
+          { "internalType": "bool", "name": "paymentNeeded", "type": "bool" },
+          { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" }
+        ],
+        "internalType": "struct GiveawayManager.GiveawayInstance[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "giveawayOwner", "type": "address" }
+    ],
+    "name": "getOwnerGiveaways",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "enum GiveawayManager.GiveawayType",
+                "name": "giveawayType",
+                "type": "uint8"
+              },
+              { "internalType": "uint256", "name": "id", "type": "uint256" },
+              { "internalType": "bool", "name": "automation", "type": "bool" },
+              { "internalType": "bool", "name": "feeToken", "type": "bool" },
+              {
+                "internalType": "address",
+                "name": "feeTokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "startDate",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "permissioned",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint8",
+                "name": "totalWinners",
+                "type": "uint8"
+              },
+              {
+                "internalType": "bytes",
+                "name": "provenanceHash",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint8",
+                "name": "entriesPerUser",
+                "type": "uint8"
+              }
+            ],
+            "internalType": "struct GiveawayManager.GiveawayBase",
+            "name": "base",
+            "type": "tuple"
+          },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          {
+            "internalType": "string",
+            "name": "giveawayName",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "contestants",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "winners",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "UD60x18",
+            "name": "prizeWorth",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "requestId",
+                "type": "uint256"
+              },
+              { "internalType": "uint256", "name": "paid", "type": "uint256" },
+              { "internalType": "bool", "name": "fulfilled", "type": "bool" },
+              {
+                "internalType": "uint256[]",
+                "name": "randomWords",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLink",
+                "type": "uint256"
+              },
+              { "internalType": "bool", "name": "withdrawn", "type": "bool" },
+              {
+                "internalType": "uint256",
+                "name": "upkeepId",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct GiveawayManager.RequestStatus",
+            "name": "requestStatus",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeLength",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "fee", "type": "uint256" },
+          {
+            "internalType": "enum GiveawayManager.GiveawayState",
+            "name": "giveawayState",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "prizeName",
+                "type": "string"
+              },
+              {
+                "internalType": "bytes32[]",
+                "name": "claimedPrizes",
+                "type": "bytes32[]"
+              }
+            ],
+            "internalType": "struct GiveawayManager.Prize",
+            "name": "prize",
+            "type": "tuple"
+          },
+          { "internalType": "bool", "name": "paymentNeeded", "type": "bool" },
+          { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" }
+        ],
+        "internalType": "struct GiveawayManager.GiveawayInstance[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "getGiveaway",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "enum GiveawayManager.GiveawayType",
+                "name": "giveawayType",
+                "type": "uint8"
+              },
+              { "internalType": "uint256", "name": "id", "type": "uint256" },
+              { "internalType": "bool", "name": "automation", "type": "bool" },
+              { "internalType": "bool", "name": "feeToken", "type": "bool" },
+              {
+                "internalType": "address",
+                "name": "feeTokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "startDate",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "permissioned",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint8",
+                "name": "totalWinners",
+                "type": "uint8"
+              },
+              {
+                "internalType": "bytes",
+                "name": "provenanceHash",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint8",
+                "name": "entriesPerUser",
+                "type": "uint8"
+              }
+            ],
+            "internalType": "struct GiveawayManager.GiveawayBase",
+            "name": "base",
+            "type": "tuple"
+          },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          {
+            "internalType": "string",
+            "name": "giveawayName",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "contestants",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "winners",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "UD60x18",
+            "name": "prizeWorth",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "requestId",
+                "type": "uint256"
+              },
+              { "internalType": "uint256", "name": "paid", "type": "uint256" },
+              { "internalType": "bool", "name": "fulfilled", "type": "bool" },
+              {
+                "internalType": "uint256[]",
+                "name": "randomWords",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLink",
+                "type": "uint256"
+              },
+              { "internalType": "bool", "name": "withdrawn", "type": "bool" },
+              {
+                "internalType": "uint256",
+                "name": "upkeepId",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct GiveawayManager.RequestStatus",
+            "name": "requestStatus",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeLength",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "fee", "type": "uint256" },
+          {
+            "internalType": "enum GiveawayManager.GiveawayState",
+            "name": "giveawayState",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "string",
+                "name": "prizeName",
+                "type": "string"
+              },
+              {
+                "internalType": "bytes32[]",
+                "name": "claimedPrizes",
+                "type": "bytes32[]"
+              }
+            ],
+            "internalType": "struct GiveawayManager.Prize",
+            "name": "prize",
+            "type": "tuple"
+          },
+          { "internalType": "bool", "name": "paymentNeeded", "type": "bool" },
+          { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" }
+        ],
+        "internalType": "struct GiveawayManager.GiveawayInstance",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" },
+      { "internalType": "address", "name": "user", "type": "address" }
+    ],
+    "name": "getUserEntries",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "getWinners",
+    "outputs": [
+      { "internalType": "bytes32[]", "name": "", "type": "bytes32[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "i_registry",
+    "outputs": [
+      {
+        "internalType": "contract AutomationRegistryInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isPaused",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "linkTokenAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" },
+      { "internalType": "bytes", "name": "data", "type": "bytes" }
+    ],
+    "name": "onTokenTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "paused",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "performData", "type": "bytes" }
+    ],
+    "name": "performUpkeep",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "giveawayCounter",
+    "outputs": [
+      { "internalType": "uint256", "name": "_value", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "giveaways",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "enum GiveawayManager.GiveawayType",
+            "name": "giveawayType",
+            "type": "uint8"
+          },
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          { "internalType": "bool", "name": "automation", "type": "bool" },
+          { "internalType": "bool", "name": "feeToken", "type": "bool" },
+          {
+            "internalType": "address",
+            "name": "feeTokenAddress",
+            "type": "address"
+          },
+          { "internalType": "uint256", "name": "startDate", "type": "uint256" },
+          { "internalType": "bool", "name": "permissioned", "type": "bool" },
+          { "internalType": "uint8", "name": "totalWinners", "type": "uint8" },
+          {
+            "internalType": "bytes",
+            "name": "provenanceHash",
+            "type": "bytes"
+          },
+          { "internalType": "uint8", "name": "entriesPerUser", "type": "uint8" }
+        ],
+        "internalType": "struct GiveawayManager.GiveawayBase",
+        "name": "base",
+        "type": "tuple"
+      },
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "string", "name": "giveawayName", "type": "string" },
+      { "internalType": "UD60x18", "name": "prizeWorth", "type": "uint256" },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "requestId", "type": "uint256" },
+          { "internalType": "uint256", "name": "paid", "type": "uint256" },
+          { "internalType": "bool", "name": "fulfilled", "type": "bool" },
+          {
+            "internalType": "uint256[]",
+            "name": "randomWords",
+            "type": "uint256[]"
+          },
+          { "internalType": "uint256", "name": "totalLink", "type": "uint256" },
+          { "internalType": "bool", "name": "withdrawn", "type": "bool" },
+          { "internalType": "uint256", "name": "upkeepId", "type": "uint256" }
+        ],
+        "internalType": "struct GiveawayManager.RequestStatus",
+        "name": "requestStatus",
+        "type": "tuple"
+      },
+      { "internalType": "uint256", "name": "timeLength", "type": "uint256" },
+      { "internalType": "uint256", "name": "fee", "type": "uint256" },
+      {
+        "internalType": "enum GiveawayManager.GiveawayState",
+        "name": "giveawayState",
+        "type": "uint8"
+      },
+      {
+        "components": [
+          { "internalType": "string", "name": "prizeName", "type": "string" },
+          {
+            "internalType": "bytes32[]",
+            "name": "claimedPrizes",
+            "type": "bytes32[]"
+          }
+        ],
+        "internalType": "struct GiveawayManager.Prize",
+        "name": "prize",
+        "type": "tuple"
+      },
+      { "internalType": "bool", "name": "paymentNeeded", "type": "bool" },
+      { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_requestId", "type": "uint256" },
+      {
+        "internalType": "uint256[]",
+        "name": "_randomWords",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "rawFulfillRandomWords",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "registrar",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "requestConfig",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "callbackGasLimit",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint16",
+        "name": "requestConfirmations",
+        "type": "uint16"
+      },
+      { "internalType": "uint32", "name": "numWords", "type": "uint32" },
+      {
+        "internalType": "uint32",
+        "name": "automationGasLimit",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "requestIdToGiveawayIndex",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" },
+      { "internalType": "bytes", "name": "provenanceHash", "type": "bytes" }
+    ],
+    "name": "setProvenanceHash",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "stagedGiveaways",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint32", "name": "newGasLimit", "type": "uint32" }
+    ],
+    "name": "updateAutomationCallBackGasLimit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" },
+      { "internalType": "address", "name": "newAdmin", "type": "address" }
+    ],
+    "name": "updateGiveawayOwner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint32", "name": "newGasLimit", "type": "uint32" }
+    ],
+    "name": "updateVRFCallBackGasLimit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "vrfWrapper",
+    "outputs": [
+      {
+        "internalType": "contract VRFV2WrapperInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "giveawayId", "type": "uint256" }
+    ],
+    "name": "withdrawLink",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
+      object-src 'none'" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giveaway</title>
+    <meta
+      name="description"
+      content="" />
+    <meta name="author" content="Giveaway" />
+    <meta name="keywords" content="Giveaway, Automation" />
+
+    <meta property="og:title" content="Giveaway" />
+    <meta
+      property="og:description"
+      content="" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Giveaway" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@giveaway" />
+    <meta name="twitter:creator" content="@giveaway" />
+    <meta name="twitter:title" content="Giveaway" />
+    <meta
+      name="twitter:description"
+      content="" />
+    <meta name="twitter:image" content="" />
+
+    <script id="env-vars"></script>
+    <script type="module">
+      import { Buffer } from 'buffer'
+      window.Buffer = Buffer
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

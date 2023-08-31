@@ -1,0 +1,11 @@
+{
+  "name": "fuji",
+  "linkAddress": "0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846",
+  "wrapperAddress": "0x9345AC54dA4D0B5Cda8CB749d8ef37e5F02BBb21",
+  "keepersRegistry": "0x02777053d6764996e594c3E88AF1D58D5363a2e6",
+  "requestConfirmations": 3,
+  "callbackGasLimit": 600000,
+  "registrarAddress": "0xDb8e8e2ccb5C033938736aa89Fe4fa1eDfD15a1d",
+  "whaleAddress": "0x4281ecf07378ee595c564a59048801330f3084ee",
+  "automationCallbackGas": 5000000
+}

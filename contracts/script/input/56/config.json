@@ -1,0 +1,11 @@
+{
+  "name": "binance",
+  "linkAddress": "0x404460C6A5EdE2D891e8297795264fDe62ADBB75",
+  "wrapperAddress": "0x721DFbc5Cfe53d32ab00A9bdFa605d3b8E1f3f42",
+  "keepersRegistry": "0x02777053d6764996e594c3E88AF1D58D5363a2e6",
+  "requestConfirmations": 3,
+  "callbackGasLimit": 500000,
+  "registrarAddress": "0xDb8e8e2ccb5C033938736aa89Fe4fa1eDfD15a1d",
+  "whaleAddress": "0xe4ddb4233513498b5aa79b98bea473b01b101a67",
+  "automationCallbackGas": 5000000
+}

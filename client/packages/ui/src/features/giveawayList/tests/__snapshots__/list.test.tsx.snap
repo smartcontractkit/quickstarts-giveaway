@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GiveawayList matches snapshot 1`] = `
+[
+  <div
+    className="chakra-container css-1xetpgu"
+  >
+    <div
+      className="css-mzt97k"
+    >
+      <div
+        className="chakra-stack css-1y5q8ss"
+      >
+        <div
+          className="chakra-select__wrapper css-4j45yy"
+        >
+          <select
+            className="chakra-select css-1psspw3"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            value=""
+          >
+            <option
+              value=""
+            >
+              All
+            </option>
+            <option
+              value={0}
+            >
+              Staged
+            </option>
+            <option
+              value={1}
+            >
+              Live
+            </option>
+            <option
+              value={3}
+            >
+              Resolving
+            </option>
+            <option
+              value={2}
+            >
+              Finished
+            </option>
+          </select>
+          <div
+            className="chakra-select__icon-wrapper css-iohxn1"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-select__icon"
+              focusable={false}
+              role="presentation"
+              style={
+                {
+                  "color": "currentColor",
+                  "height": "1em",
+                  "width": "1em",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1db7fom"
+    >
+      <a
+        className="css-1bq96he"
+        data-testid="giveaway-card"
+        href="/giveaway/0"
+        onClick={[Function]}
+      >
+        <div
+          className="chakra-stack css-kc3xva"
+        >
+          <div
+            className="css-z7mtfw"
+          >
+            <div
+              className="chakra-stack css-rmxdag"
+            >
+              <svg
+                fill="none"
+                height="11"
+                viewBox="0 0 11 11"
+                width="11"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="5.5"
+                  cy="5.5"
+                  fill="#CED0D5"
+                  r="5.5"
+                />
+              </svg>
+              <p
+                className="chakra-text css-itvw0n"
+              >
+                Staged
+              </p>
+            </div>
+          </div>
+          <hr
+            aria-orientation="horizontal"
+            className="chakra-divider css-16yojot"
+          />
+          <h2
+            className="chakra-heading css-1qor0am"
+          >
+            STAGED:STATIC
+          </h2>
+          <hr
+            aria-orientation="horizontal"
+            className="chakra-divider css-16yojot"
+          />
+        </div>
+        <div
+          className="css-2udogg"
+        >
+          <hr
+            aria-orientation="horizontal"
+            className="chakra-divider css-1qt7glz"
+          />
+          <div
+            className="css-hnuddh"
+          >
+            <svg
+              className="arrow"
+              fill="none"
+              height="19"
+              viewBox="0 0 19 19"
+              width="19"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.375 9.5C18.375 14.4015 14.4015 18.375 9.5 18.375C4.59847 18.375 0.625 14.4015 0.625 9.5C0.625 4.59847 4.59847 0.625 9.5 0.625C14.4015 0.625 18.375 4.59847 18.375 9.5Z"
+                stroke="#3F5ACB"
+                strokeWidth="1.25"
+              />
+              <path
+                d="M13.8539 9.57805L11.21 6.24688C10.9825 5.96051 10.5712 5.91704 10.2913 6.14921C10.0114 6.38189 9.96846 6.80276 10.1964 7.08965L11.9756 9.33156H5.65323C5.29238 9.33156 5 9.63072 5 9.99994C5 10.3692 5.29238 10.6683 5.65323 10.6683H11.9751L10.1959 12.9102C9.96846 13.1966 10.0109 13.6175 10.2908 13.8507C10.4118 13.9509 10.5572 14 10.7022 14C10.8921 14 11.0805 13.9156 11.2095 13.753L13.8534 10.4218C14.0488 10.1753 14.0488 9.82351 13.8539 9.57805Z"
+                fill="#3F5ACB"
+              />
+            </svg>
+          </div>
+        </div>
+      </a>
+      <a
+        className="css-1bq96he"
+        data-testid="giveaway-card"
+        href="/giveaway/1"
+        onClick={[Function]}
+      >
+        <div
+          className="chakra-stack css-kc3xva"
+        >
+          <div
+            className="css-z7mtfw"
+          >
+            <div
+              className="chakra-stack css-rmxdag"
+            >
+              <svg
+                fill="none"
+                height="11"
+                viewBox="0 0 12 11"
+                width="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.79197 1.0256C7.88102 0.380689 6.76621 0 5.56059 0C2.48973 0 0 2.4626 0 5.5C0 8.5374 2.48973 11 5.56059 11C8.63146 11 11.1212 8.5374 11.1212 5.5H5.56059L8.79197 1.0256Z"
+                  fill="#59C174"
+                />
+              </svg>
+              <p
+                className="chakra-text css-itvw0n"
+              >
+                Live
+              </p>
+            </div>
+          </div>
+          <hr
+            aria-orientation="horizontal"
+            className="chakra-divider css-16yojot"
+          />
+          <h2
+            className="chakra-heading css-1qor0am"
+          >
+            LIVE:STATIC
+          </h2>
+          <hr
+            aria-orientation="horizontal"
+            className="chakra-divider css-16yojot"
+          />
+          <div
+            className="css-z7mtfw"
+          >
+            <p
+              className="chakra-text css-itvw0n"
+            >
+              Prize:
+            </p>
+            <p
+              className="chakra-text css-itvw0n"
+            >
+              Prize Name
+            </p>
+          </div>
+        </div>
+        <div
+          className="css-2udogg"
+        >
+          <hr
+            aria-orientation="horizontal"
+            className="chakra-divider css-1qt7glz"
+          />
+          <div
+            className="css-hnuddh"
+          >
+            <svg
+              className="arrow"
+              fill="none"
+              height="19"
+              viewBox="0 0 19 19"
+              width="19"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.375 9.5C18.375 14.4015 14.4015 18.375 9.5 18.375C4.59847 18.375 0.625 14.4015 0.625 9.5C0.625 4.59847 4.59847 0.625 9.5 0.625C14.4015 0.625 18.375 4.59847 18.375 9.5Z"
+                stroke="#3F5ACB"
+                strokeWidth="1.25"
+              />
+              <path
+                d="M13.8539 9.57805L11.21 6.24688C10.9825 5.96051 10.5712 5.91704 10.2913 6.14921C10.0114 6.38189 9.96846 6.80276 10.1964 7.08965L11.9756 9.33156H5.65323C5.29238 9.33156 5 9.63072 5 9.99994C5 10.3692 5.29238 10.6683 5.65323 10.6683H11.9751L10.1959 12.9102C9.96846 13.1966 10.0109 13.6175 10.2908 13.8507C10.4118 13.9509 10.5572 14 10.7022 14C10.8921 14 11.0805 13.9156 11.2095 13.753L13.8534 10.4218C14.0488 10.1753 14.0488 9.82351 13.8539 9.57805Z"
+                fill="#3F5ACB"
+              />
+            </svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>,
+  <span />,
+  <span
+    hidden={true}
+    id="__chakra_env"
+  />,
+]
+`;

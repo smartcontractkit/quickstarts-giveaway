@@ -1,0 +1,10 @@
+config/*
+test/*
+scripts/*
+node_modules/**
+dist/**
+build/**
+public/**
+.DS_Store
+*.svg
+**/*.snap
