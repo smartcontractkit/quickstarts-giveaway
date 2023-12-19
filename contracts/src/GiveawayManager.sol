@@ -142,7 +142,7 @@ contract GiveawayManager is
         bytes32 indexed player,
         uint256 entries
     );
-    event GiveawayClosed(uint256 indexed giveawayId, bytes32[] participants);
+    event GiveawayClosed(uint256 indexed giveawayId, uint256 participants);
     event GiveawayStaged(uint256 indexed giveawayId);
     event GiveawayCancelled(uint256 indexed giveawayId);
     event GiveawayWon(uint256 indexed giveawayId, bytes32[] indexed winners);
@@ -722,7 +722,7 @@ contract GiveawayManager is
         giveaways[giveawayId].giveawayState = GiveawayState.RESOLVING;
         _requestRandomWords(giveawayId, value);
 
-        emit GiveawayClosed(giveawayId, giveaways[giveawayId].contestants);
+        emit GiveawayClosed(giveawayId, giveaways[giveawayId].contestants.length);
     }
 
     function _shuffle(
